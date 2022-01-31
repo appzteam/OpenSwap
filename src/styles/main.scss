@@ -1,0 +1,78 @@
+@import 'shared';
+@import 'common/reset';
+
+$min_width: 320px;
+$max_width: 1200px;
+$min_font: 14px;
+$max_font: 16px;
+
+* {
+  font-family: $primary-font;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  text-rendering: geometricPrecision;
+}
+
+body {
+  @include fluid-type($min_width, $max_width, $min_font, $max_font);
+  font-family: $primary-font;
+  color: $text-color;
+  overflow-x: hidden;
+  background: #fafeff;
+  position: relative;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+a {
+  color: $accent-color;
+  text-decoration: none;
+  outline: none;
+  @include transition(color);
+
+  &:hover {
+    color: $accent-color-dark;
+  }
+
+  &:active, &:focus {
+    outline: none;
+  }
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.cardButton {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 20px;
+  font-weight: 700;
+  background: $accent-color;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  width: 100%;
+  box-sizing: border-box;
+  cursor: pointer;
+  @include transition(background);
+
+  &:hover {
+    background: $accent-color-dark;
+  }
+
+  &:disabled {
+    background: rgba($accent-color, 0.5);
+  }
+}

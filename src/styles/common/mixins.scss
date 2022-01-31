@@ -1,0 +1,61 @@
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+@mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
+  $u1: unit($min-vw);
+  $u2: unit($max-vw);
+  $u3: unit($min-font-size);
+  $u4: unit($max-font-size);
+
+  @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+    & {
+      font-size: $min-font-size;
+      @media screen and (min-width: $min-vw) {
+        font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+      }
+      @media screen and (min-width: $max-vw) {
+        font-size: $max-font-size;
+      }
+    }
+  }
+}
+
+@mixin animation($animation, $duration: 0.5s, $timing: ease-in, $delay: 0s, $iteration: 1) {
+  animation-delay: $delay;
+  animation-duration: $duration;
+  animation-iteration-count: $iteration;
+  animation-name: $animation;
+  animation-timing-function: $timing;
+}
+
+@mixin transition($props, $time: 0.2s, $easing: ease-in, $delay: 0s) {
+  $transition: ();
+  @for $i from 1 through length($props) {
+    @for $j from 0 to (length($props)) - (length($time)) {
+      $time: join($time, nth($time, -1));
+    }
+    @for $j from 0 to (length($props)) - (length($easing)) {
+      $easing: join($easing, nth($easing, -1));
+    }
+    @for $j from 0 to (length($props)) - (length($delay)) {
+      $delay: join($delay, nth($delay, -1));
+    }
+    $transition: append($transition, (nth($props, $i) nth($time, $i) nth($easing, $i) nth($delay, $i)), $separator: comma);
+  }
+  transition: $transition;
+}
+
+@mixin transform($value) {
+  -webkit-transform: $value;
+  -ms-transform: $value;
+  transform: $value;
+}
+
+@mixin user-select($value) {
+  -webkit-touch-callout: $value;
+  -webkit-user-select: $value;
+  -moz-user-select: $value;
+  -ms-user-select: $value;
+  user-select: $value;
+}

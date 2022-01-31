@@ -1,0 +1,91 @@
+@import "../../styles/shared";
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10px;
+
+  .select {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 12px;
+    padding: 3px;
+    margin: -3px 0;
+    cursor: pointer;
+    @include transition(color background);
+
+    &:hover {
+      background: $accent-color-bright;
+    }
+
+    &:hover, &:hover .arrow {
+      color: $accent-color-dark;
+    }
+
+    img.image {
+      position: relative;
+      display: block;
+      border-radius: 50%;
+      height: 1.5em;
+      width: 1.5em;
+    }
+    svg.image {
+      position: relative;
+      display: block;
+      font-size: 1em;
+      padding: 0.25em;
+    }
+
+    .symbol {
+      position: relative;
+      margin-left: 6px;
+      font-weight: 700;
+    }
+
+    .arrow {
+      position: relative;
+      margin-left: 8px;
+      margin-right: 6px;
+      font-size: 0.8em;
+      color: $secondary-text-color;
+    }
+  }
+
+  .balance {
+    color: $secondary-text-color;
+    font-size: 0.8rem;
+  }
+
+  .balanceMax {
+    margin-left: 8px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+  }
+}
+
+.inputWrapper {
+  position: relative;
+
+  input {
+    border: none;
+    background: $input-background-color;
+    border-radius: 8px;
+    text-align: right;
+    padding: 7px 20px;
+    font-weight: 400;
+    font-size: 1.8rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+}

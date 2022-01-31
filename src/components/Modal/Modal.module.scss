@@ -1,0 +1,81 @@
+@import '../../styles/shared';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  overflow-y: scroll;
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgb(10 20 30 / 65%);
+    animation-duration: 0.25s;
+    cursor: pointer;
+
+    .closeIcon {
+      position: absolute;
+      right: 45px;
+      top: 30px;
+      opacity: 0.2;
+      @include transition(opacity);
+
+      &:before, &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 2rem;
+        width: 0.25rem;
+        background: #fff;
+      }
+      &:before {
+        transform: rotateZ(-45deg);
+      }
+      &:after {
+        transform: rotateZ(45deg);
+      }
+    }
+
+    &:hover {
+      .closeIcon {
+        opacity: 0.75;
+      }
+    }
+  }
+
+  .containerWrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .container {
+    position: relative;
+    width: 380px;
+    max-width: calc(100vw - 40px);
+    box-sizing: border-box;
+    background: #ffffff;
+    padding: 25px 20px;
+    border-radius: 16px;
+    margin: 50px 20px;
+    animation-duration: 0.5s;
+
+    .title {
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+      font-weight: 700;
+      cursor: default;
+    }
+  }
+}

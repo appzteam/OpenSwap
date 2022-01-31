@@ -1,0 +1,125 @@
+@import '../../styles/shared';
+
+.wrapper {
+  position: relative;
+  height: 90px;
+  box-shadow: #e2e9f6 0 0 8px 0;
+  background: #fff;
+}
+
+.container {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 3px $content-padding 0 $content-padding;
+}
+
+.brand {
+  cursor: pointer;
+  margin-top: -3px;
+
+  svg {
+    width: 180px;
+  }
+}
+
+.navigation {
+  display: flex;
+  flex-direction: row;
+  margin-left: 40px;
+  line-height: 1.5em;
+  font-weight: 700;
+
+  a {
+    position: relative;
+    margin-right: 30px;
+
+    &:before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      bottom: -2px;
+      background: $accent-color;
+      height: 2px;
+      left: 0;
+      transform: scaleX(0);
+      @include transition(transform);
+    }
+
+    &.currentPage:before {
+        transform: scaleX(1);
+    }
+
+    &:hover:before {
+      background: $accent-color-dark;
+      transform: scaleX(1);
+    }
+  }
+}
+
+.connectButton {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 43px;
+  background: $accent-color;
+  padding: 0 20px;
+  border-radius: 22px;
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+  @include transition(background);
+
+  &:hover {
+    background: $accent-color-dark;
+  }
+
+  svg {
+    margin-right: 8px;
+  }
+}
+
+.wallet {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 3px;
+  border-radius: 22px;
+  font-weight: 500;
+  font-size: 0.9em;
+  background: $accent-color-bright;
+
+  .balance {
+    margin-right: 8px;
+    margin-left: 14px;
+    color: $accent-color-dark;
+    cursor: default;
+  }
+
+  .address {
+    padding: 11px 12px;
+    border-radius: 22px;
+    background: $accent-color;
+    color: #fff;
+    cursor: pointer;
+    @include transition(background);
+
+    &:hover {
+      background: $accent-color-dark;
+    }
+
+    span {
+      margin-left: 8px;
+    }
+  }
+}
+
+.rate {
+  margin-right: 20px;
+  font-weight: 500;
+  color: $accent-color-dark;
+  cursor: default;
+}

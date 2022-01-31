@@ -1,0 +1,72 @@
+@import '../../styles/shared';
+
+.setting {
+  .title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 15px;
+    font-weight: 700;
+    cursor: default;
+
+    svg {
+      margin-left: 8px;
+      font-size: 0.75em;
+      margin-top: 2px;
+      opacity: 0.3;
+      cursor: pointer;
+      @include transition(opacity);
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}
+
+.selectSlippage {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-weight: 500;
+  font-size: 13px;
+
+  .slippage {
+    background: $accent-color-bright;
+    color: $accent-color-dark;
+    padding: 8px 12px;
+    border-radius: 8px;
+    margin-right: 10px;
+    cursor: pointer;
+    @include transition(color background);
+  }
+
+  .customSlippage {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    input {
+      background: $accent-color-bright;
+      color: $accent-color-dark;
+      padding: 6px 12px;
+      border-radius: 8px;
+      border: none;
+      margin-right: 5px;
+      width: 100%;
+      box-sizing: border-box;
+
+      &::placeholder {
+        color: $accent-color-dark;
+      }
+    }
+    span {
+      color: $accent-color-dark;
+    }
+  }
+
+  .selectedSlippage {
+    background: $accent-color-dark !important;
+    color: #fff !important;
+  }
+}

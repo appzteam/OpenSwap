@@ -1,0 +1,71 @@
+@import '../../styles/shared';
+
+.wrapper {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 60px 20px;
+  width: 380px;
+  background: #fff;
+  padding: 25px 20px;
+  border-radius: 16px;
+  box-shadow: 0 12px 24px #e2e9f6;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+
+  .title {
+    font-weight: 700;
+    cursor: default;
+  }
+
+  .rightButton, .backButton {
+    font-size: 0.8em;
+    color: $secondary-text-color;
+    cursor: pointer;
+    @include transition(color);
+
+    &:hover {
+      color: $text-color;
+    }
+
+    svg {
+      display: block;
+    }
+  }
+
+  .rightButton {
+    margin-left: 15px;
+  }
+  .backButton {
+    margin-right: 12px;
+    margin-top: 2px;
+  }
+
+  .sync-alt {
+    &:focus {
+      svg {
+        animation: rotate;
+        animation-duration: 0.5s;
+      }
+    }
+
+    &:active {
+      svg {
+        animation: none;
+      }
+    }
+  }
+}

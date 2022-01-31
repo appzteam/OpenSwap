@@ -1,0 +1,45 @@
+@import '../../styles/shared';
+
+.item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 10px;
+  color: $text-color;
+  @include transition(background color);
+
+  &:last-child {
+    margin-bottom: 0px;
+  }
+
+  &:hover {
+    background: $input-background-color;
+  }
+
+  .token {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    img {
+      width: 2.6rem;
+      height: 2.6rem;
+    }
+
+    .info {
+      margin-left: 12px;
+
+      .symbol {
+        font-weight: 700;
+      }
+      .network {
+        margin-top: 5px;
+        font-weight: 400;
+        font-size: 0.8em;
+      }
+    }
+  }
+}

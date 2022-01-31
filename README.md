@@ -1,44 +1,44 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+<img src="https://raw.githubusercontent.com/1vanov/OpenSwap/main/src/assets/openswap-logo.svg" width="350"/>
 
-## Available Scripts
+OpenSwap is a decentralized exchange based on 💎 [The Open Network](https://ton.org/) (TON).
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## How to run
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+#### `npm start`
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+When testing, it is preferable to have the TON Wallet extension in your browser. However, if you haven't, you will get a fake wallet with fake balances.
 
-### `npm test`
+**Live Demo: _will be added later_**
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+*Please note that the contest entry is in commit [`v0.1.0`](https://github.com/1vanov/OpenSwap/commit/e8f922f0d4c80e1bb8db402a4bcdb5f144becd04)*
+*Further development until the end of the contest will be in a separate branch.*
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Advantages
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+* Integration with the [TON Wallet](https://chrome.google.com/webstore/detail/ton-wallet/nphplpgoakhhjchkkhmiggakijnkhfnd) extension for Google Chrome (this wallet doesn't support tokens yet but anyway)
+* Exchange any tokens with each other *(you can check existing pools in tokens.ts)*
+* A fully functioning calculations of token prices and price impacts, based on the pool reserves *(you can check existing pools in pairs.ts)*
+* Add liquidity to any existing token pair or create your own
+* Simple, fast and modern design
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## TODO
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Since I'm going to continue to develop this project and join the TON ecosystem, there's still a lot of things to do.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## License
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+See the [LICENSE](LICENSE) file for license rights and limitations (MIT).
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Contact me
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+[Telegram](https://t.me/ogworldwide)

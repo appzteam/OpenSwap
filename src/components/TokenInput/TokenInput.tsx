@@ -1,10 +1,10 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
+import {useTypedSelector} from '../../hooks/useTypedSelector';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {Token} from '../../types/tokens';
-import {useTypedSelector} from '../../hooks/useTypedSelector';
+import {selectBalanceByTokenAddress} from '../../store/wallet/walletSelectors';
 import TokenSelect from '../TokenSelect/TokenSelect';
 import styles from './TokenInput.module.scss';
-import {selectBalanceByTokenAddress} from '../../store/wallet/walletSelectors';
 
 type props = {
     token: Token | null,
@@ -25,6 +25,24 @@ const TokenInput = ({
                     }: props) => {
     const wallet = useTypedSelector(state => state.wallet)
     const [isSelectOpened, setSelectOpened] = useState(false)
+    const [inputValue, setInputValue] = useState('')
+
+    useEffect(() => {
+        if (Number(inputValue) !== amount && amount !== 0) setInputValue((Math.floor(amount * 100000) / 100000).toString())
+        if (Number(inputValue) !== amount && amount === 0) setInputValue('')
+    }, [amount])
+
+    const onInputValueChanged = (value: string) => {
+        const newAmount = Number(value.replace(',', '.'))
+        if (!isNaN(newAmount)) {
+            onAmountChange(newAmount)
+            setInputValue(value)
+        }
+    }
+
+    const onInputKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        return !/[0-9.,]/.test(e.key) ? e.preventDefault() : true
+    }
 
     return (
         <div className={styles.wrapper}>
@@ -62,10 +80,9 @@ const TokenInput = ({
 
             <div className={styles.inputWrapper}>
                 <input placeholder="0" type="text"
-                       value={amount ? (Math.floor(amount * 100000) / 100000).toString() : ''}
-                    // FIX IT ^^^ (не вставляется точка и запятая)
-                       onKeyPress={(e) => !/[0-9.,]/.test(e.key) ? e.preventDefault() : true}
-                       onChange={(e) => onAmountChange(Number(e.target.value.replace(',', '.')))}/>
+                       value={inputValue}
+                       onKeyPress={(e) => onInputKeyPress(e)}
+                       onChange={(e) => onInputValueChanged(e.target.value)}/>
             </div>
 
             <TokenSelect isOpen={isSelectOpened} onRequestClose={() => setSelectOpened(false)}

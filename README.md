@@ -6,14 +6,15 @@ OpenSwap is a decentralized exchange based on 💎 [The Open Network](https://to
 
 ## How to run
 
-#### `npm start`
+#### `npm install && npm start`
 
-When testing, it is preferable to have the TON Wallet extension in your browser. However, if you haven't, you will get a fake wallet with fake balances.
+It's preferable to have the [TON Wallet](https://chrome.google.com/webstore/detail/ton-wallet/nphplpgoakhhjchkkhmiggakijnkhfnd) extension in your browser when testing. However, if you haven't, you will get a fake wallet with fake balances.
 
-**Live Demo: _will be added later_**
+**Contest version: https://openswap.vercel.app**
 
-*Please note that the contest entry is in commit [`v0.1.0`](https://github.com/1vanov/OpenSwap/commit/e8f922f0d4c80e1bb8db402a4bcdb5f144becd04)*
-*Further development until the end of the contest will be in a separate branch.*
+**Latest dev. version: https://openswap-git-dev-1vanov.vercel.app**
+
+*Ongoing development until the results of the contest is carried out in a separate branch.*
 
 ---
 
@@ -41,4 +42,4 @@ See the [LICENSE](LICENSE) file for license rights and limitations (MIT).
 
 ## Contact me
 
-[Telegram](https://t.me/ogworldwide)
+[Telegram](http://srflnk.ru/openswap)

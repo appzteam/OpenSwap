@@ -19,7 +19,9 @@ import {
     faChevronUp,
     faSearch,
     faQuestionCircle,
-    faPlus, faExchangeAlt
+    faPlus,
+    faMinus,
+    faExchangeAlt
 } from '@fortawesome/free-solid-svg-icons'
 import {faQuestionCircle as farQuestionCircle} from '@fortawesome/free-regular-svg-icons';
 import SettingsModal from './components/SettingsModal/SettingsModal';
@@ -27,7 +29,7 @@ import {useTypedSelector} from './hooks/useTypedSelector';
 import {useActions} from './hooks/useActions';
 import BridgesPage from './pages/BridgesPage';
 
-library.add(fab, faWallet, faCogs, faSyncAlt, faArrowDown, faChevronDown, faChevronLeft, faArrowUp, faChevronUp, faQuestionCircle, farQuestionCircle, faSearch, faPlus, faExchangeAlt)
+library.add(fab, faWallet, faCogs, faSyncAlt, faArrowDown, faChevronDown, faChevronLeft, faArrowUp, faChevronUp, faQuestionCircle, farQuestionCircle, faSearch, faPlus, faMinus, faExchangeAlt)
 
 
 const App = () => {

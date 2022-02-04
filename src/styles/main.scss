@@ -58,6 +58,7 @@ a {
   align-items: center;
   justify-content: center;
   padding: 18px 20px;
+  font-size: 1rem;
   font-weight: 700;
   background: $accent-color;
   color: #fff;
@@ -74,5 +75,10 @@ a {
 
   &:disabled {
     background: rgba($accent-color, 0.5);
+  }
+
+  svg {
+    font-size: 0.8em;
+    margin-right: 0.6em;
   }
 }

@@ -28,7 +28,7 @@ const TokenInput = ({
     const [inputValue, setInputValue] = useState('')
 
     useEffect(() => {
-        if (Number(inputValue) !== amount && amount !== 0) setInputValue((Math.floor(amount * 100000) / 100000).toString())
+        if (Number(inputValue) !== amount && amount !== 0) setInputValue((Math.floor(amount * 1000000) / 1000000).toString())
         if (Number(inputValue) !== amount && amount === 0) setInputValue('')
     }, [amount])
 
@@ -42,6 +42,11 @@ const TokenInput = ({
 
     const onInputKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
         return !/[0-9.,]/.test(e.key) ? e.preventDefault() : true
+    }
+
+    const displayBalance = (token: Token) => {
+        const balance = selectBalanceByTokenAddress(wallet, token.address) || 0
+        return Math.floor(balance * 100000) / 100000
     }
 
     return (
@@ -65,7 +70,7 @@ const TokenInput = ({
 
                 {showBalance && wallet.address && token ?
                     <div className={styles.balance} key={1}>
-                        Balance: {selectBalanceByTokenAddress(wallet, token.address)}
+                        Balance: {displayBalance(token)}
                     </div> : null
                 }
 

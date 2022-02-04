@@ -29,6 +29,11 @@ const TokenSelect = ({isOpen, onRequestClose, selected, setSelected}: props) => 
         onRequestClose()
     }
 
+    const displayBalance = (token: Token) => {
+        const balance = selectBalanceByTokenAddress(wallet, token.address) || 0
+        return Math.floor(balance * 100000) / 100000
+    }
+
     return (
         <Modal title="Select token" isOpen={isOpen} onRequestClose={onRequestClose}>
 
@@ -48,7 +53,7 @@ const TokenSelect = ({isOpen, onRequestClose, selected, setSelected}: props) => 
                             <div className={styles.name}>{token.name}</div>
                         </div>
                         <div className="spacer"/>
-                        <div className={styles.balance}>{ selectBalanceByTokenAddress(wallet, token.address) || '–' }</div>
+                        <div className={styles.balance}>{ displayBalance(token) || '–' }</div>
                     </div>
                 )}
             </div>

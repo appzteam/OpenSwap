@@ -39,9 +39,9 @@ const LiquidityAddDetails = () => {
 
             setPrice(amount1 / amount0)
             setPoolShare(share * 100)
-            setPoolMinLPAmount(amount0*amount1 * (settings.slippage / 100))
+            setPoolMinLPAmount(amount0*amount1 * (1 - (settings.slippage / 100)))
         } else {
-            setPoolMinLPAmount(pool.amount1*pool.amount0 * (settings.slippage / 100))
+            setPoolMinLPAmount(pool.amount1*pool.amount0)
             setPrice(pool.amount1 / pool.amount0)
             setPoolShare(100)
         }
@@ -73,7 +73,7 @@ const LiquidityAddDetails = () => {
                 </div>
                 <div
                     className={styles.value}>
-                    {(Math.floor(poolShare * 100) / 100) + '%'}
+                    {(Math.floor(poolShare * 1000) / 1000) + '%'}
                 </div>
             </div>
 

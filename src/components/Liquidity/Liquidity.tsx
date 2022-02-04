@@ -88,7 +88,7 @@ const Liquidity = () => {
                                     <div className={styles.info}>
                                         <div className={styles.symbol}>{pair.token0.symbol + '/' + pair.token1.symbol}</div>
                                         <div className={styles.balance}>
-                                            {getStakeDetails(pair).balance} LP
+                                            {(Math.floor(getStakeDetails(pair).balance * 100000) / 100000)} LP
                                         </div>
                                     </div>
                                     <div className="spacer"/>
